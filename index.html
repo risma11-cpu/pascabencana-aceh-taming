@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banjir Aceh Tamiang — Des 2025 s/d Jan 2026</title>
+
+    <!-- CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+    <!-- Config & Styles -->
+    <script src="tailwind-config.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-logo">Aceh Tamiang</div>
+    <ul class="nav-links">
+        <li><a href="#data">Data</a></li>
+        <li><a href="#timeline">Kronologi</a></li>
+        <li><a href="#analisis">Analisis</a></li>
+        <li><a href="#relawan">Relawan</a></li>
+        <li><a href="#suara">Suara</a></li>
+        <li><a href="#panduan">Panduan</a></li>
+        <li><a href="#bantuan">Bantuan</a></li>
+    </ul>
+    <button class="hamburger" id="mobBtn">☰</button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+    <a href="#data">Data</a><a href="#timeline">Kronologi</a><a href="#analisis">Analisis</a>
+    <a href="#relawan">Relawan</a><a href="#suara">Suara Warga</a><a href="#panduan">Panduan</a><a href="#bantuan">Bantuan</a>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="section-wrap section-base" style="min-height:100vh;display:flex;align-items:center;">
+    <div class="glow-orb" style="width:400px;height:400px;background:#00e5ff;top:-100px;right:-80px;"></div>
+    <div class="glow-orb" style="width:300px;height:300px;background:#ff5c1a;bottom:-60px;left:-60px;animation-delay:-3s;"></div>
+    <div style="max-width:1200px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;align-items:center;gap:5%;">
+        <div style="flex:1;min-width:300px;position:relative;z-index:2;" class="reveal">
+            <div class="slide-tag">Banjir Bandang — Des 2025</div>
+            <h1 class="hero-title">Banjir<br><span class="accent">Aceh Tamiang</span></h1>
+            <p class="body-text" style="max-width:540px;margin-bottom:1.5rem;">Hujan ekstrem di kawasan Gunung Leuser memicu luapan Sungai Tamiang. Seluruh 12 kecamatan terendam. 28.000 jiwa terdampak, akses jalan nasional lumpuh total.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:2rem;">
+                <span class="slide-tag slide-tag--orange" style="margin:0;">Tipe: Banjir Bandang</span>
+                <span class="slide-tag slide-tag--teal" style="margin:0;">Status: Pemulihan</span>
+            </div>
+            <div>
+                <a href="#data" class="btn-glow">Lihat Data</a>
+                <a href="#bantuan" class="btn-outline">Cara Membantu</a>
+            </div>
+        </div>
+        <div style="flex:1;min-width:280px;max-width:520px;position:relative;z-index:2;" class="reveal">
+                       <div class="img-frame" style="aspect-ratio:4/3;">
+                <img src="images/banjir.webp" alt="Banjir Aceh Tamiang Desember 2025">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ QUICK STATS ═══════════ -->
+<section class="section-wrap section-alt" style="padding-top:60px;padding-bottom:60px;">
+    <div style="max-width:1200px;margin:0 auto;">
+        <div style="display:flex;flex-wrap:wrap;gap:0.8rem;" class="reveal">
+            <div class="stat-box" style="flex:1;min-width:120px;">
+                <span class="stat-num" id="qs1">0</span>
+                <span class="stat-label">Kecamatan</span>
+            </div>
+            <div class="stat-box" style="flex:1;min-width:120px;">
+                <span class="stat-num" id="qs2">0</span>
+                <span class="stat-label">Jiwa Terdampak</span>
+            </div>
+            <div class="stat-box" style="flex:1;min-width:120px;">
+                <span class="stat-num" style="color:#ff5c1a;text-shadow:0 0 16px rgba(255,92,26,0.5);" id="qs3">0</span>
+                <span class="stat-label">Puncak Pengungsi</span>
+            </div>
+            <div class="stat-box" style="flex:1;min-width:120px;">
+                <span class="stat-num" style="color:#ff6b6b;text-shadow:0 0 16px rgba(255,107,107,0.5);" id="qs4">0</span>
+                <span class="stat-label">Rumah Terendam</span>
+            </div>
+            <div class="stat-box" style="flex:1;min-width:120px;">
+                <span class="stat-num" style="color:#ff6b6b;text-shadow:0 0 16px rgba(255,107,107,0.5);" id="qs5">0</span>
+                <span class="stat-label">Meninggal</span>
+            </div>
+            <div class="stat-box" style="flex:1;min-width:120px;">
+                <span class="stat-num" style="color:#9b5de5;text-shadow:0 0 16px rgba(155,93,229,0.5);" id="qs6">0</span>
+                <span class="stat-label">Sekolah Terendam</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ DASHBOARD ═══════════ -->
+<section id="data" class="section-wrap section-base">
+    <div class="glow-orb" style="width:350px;height:350px;background:#00e5ff;top:50%;left:-100px;animation-delay:-1s;"></div>
+    <div style="max-width:1200px;margin:0 auto;">
+        <div class="reveal">
+            <div class="slide-tag">[01] — Pusat Data</div>
+            <h2 class="section-title">Dashboard Bencana</h2>
+            <p class="mono" style="margin-bottom:2.5rem;">Periode: Desember 2025 — Januari 2026</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1.5rem;" class="reveal">
+            <div class="stat-box" style="padding:20px;">
+                <span class="iconify" data-icon="lucide:users" style="font-size:1.2rem;color:#3d5278;margin-bottom:8px;display:block;"></span>
+                <span class="stat-num" style="font-size:1.8rem;">28.000</span>
+                <span class="stat-label">Jiwa (±8.500 KK)</span>
+            </div>
+            <div class="stat-box" style="padding:20px;">
+                <span class="iconify" data-icon="lucide:tent" style="font-size:1.2rem;color:#3d5278;margin-bottom:8px;display:block;"></span>
+                <span class="stat-num" style="font-size:1.8rem;color:#ff5c1a;text-shadow:0 0 16px rgba(255,92,26,0.5);">500</span>
+                <span class="stat-label">Masih di Posko Transisi</span>
+            </div>
+            <div class="stat-box" style="padding:20px;">
+                <span class="iconify" data-icon="lucide:home" style="font-size:1.2rem;color:#3d5278;margin-bottom:8px;display:block;"></span>
+                <span class="stat-num" style="font-size:1.8rem;">4.200</span>
+                <span class="stat-label">Rumah Terendam</span>
+            </div>
+            <div class="stat-box" style="padding:20px;">
+                <span class="iconify" data-icon="lucide:alert-triangle" style="font-size:1.2rem;color:#3d5278;margin-bottom:8px;display:block;"></span>
+                <span class="stat-num" style="font-size:1.8rem;color:#ff6b6b;text-shadow:0 0 16px rgba(255,107,107,0.5);">12</span>
+                <span class="stat-label">Rusak Berat (Hanyut)</span>
+            </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:0.8rem;margin-bottom:2.5rem;" class="reveal">
+            <div class="stat-box" style="text-align:center;"><span class="stat-num" style="color:#ff6b6b;font-size:1.3rem;">1</span><span class="stat-label">Meninggal</span></div>
+            <div class="stat-box" style="text-align:center;"><span class="stat-num" style="color:#ff5c1a;font-size:1.3rem;">4</span><span class="stat-label">Luka Ringan</span></div>
+            <div class="stat-box" style="text-align:center;"><span class="stat-num" style="color:#00f5c4;font-size:1.3rem;">0</span><span class="stat-label">Hilang</span></div>
+            <div class="stat-box" style="text-align:center;"><span class="stat-num" style="color:#9b5de5;font-size:1.3rem;">15</span><span class="stat-label">Sekolah</span></div>
+            <div class="stat-box" style="text-align:center;"><span class="stat-num" style="color:#9b5de5;font-size:1.3rem;">3</span><span class="stat-label">Puskesmas</span></div>
+            <div class="stat-box" style="text-align:center;"><span class="stat-num" style="color:#f7c948;font-size:1.3rem;">1</span><span class="stat-label">Jembatan Putus</span></div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem;margin-bottom:1rem;" class="reveal">
+            <div class="glow-card" style="padding:20px;">
+                <p style="font-size:0.85rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:4px;">Ketinggian Air</p>
+                <p class="mono-sm" style="margin-bottom:16px;">Hulu vs Perkotaan (meter)</p>
+                <div style="height:220px;"><canvas id="chartWater"></canvas></div>
+            </div>
+            <div class="glow-card" style="padding:20px;">
+                <p style="font-size:0.85rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:4px;">Pengungsi per Periode</p>
+                <p class="mono-sm" style="margin-bottom:16px;">Jumlah di posko (jiwa)</p>
+                <div style="height:220px;"><canvas id="chartEvac"></canvas></div>
+            </div>
+        </div>
+        <div style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;" class="reveal">
+            <div class="glow-card" style="padding:20px;">
+                <p style="font-size:0.85rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:4px;">Dampak per Kecamatan</p>
+                <p class="mono-sm" style="margin-bottom:16px;">Estimasi jiwa terdampak</p>
+                <div style="height:260px;"><canvas id="chartKec"></canvas></div>
+            </div>
+            <div class="glow-card" style="padding:20px;">
+                <p style="font-size:0.85rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:4px;">Kebutuhan Mendesak</p>
+                <p class="mono-sm" style="margin-bottom:16px;">Prioritas saat ini</p>
+                <div style="height:260px;"><canvas id="chartNeed"></canvas></div>
+            </div>
+        </div>
+
+        <div class="glow-card reveal" style="padding:24px;margin-top:1rem;">
+            <p style="font-size:0.85rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:4px;">Status Logistik</p>
+            <p class="mono-sm" style="margin-bottom:16px;">Fase pemulihan — Januari 2026</p>
+            <div style="overflow-x:auto;">
+                <table class="glow-table">
+                    <thead><tr><th>Item</th><th>Status</th><th>Catatan</th></tr></thead>
+                    <tbody>
+                        <tr><td>Beras & Mie Instan</td><td><span class="pill pill-teal">Surplus</span></td><td style="color:#3d5278;font-size:0.8rem;">Tercukupi</td></tr>
+                        <tr><td>Susu Bayi</td><td><span class="pill pill-red">Terbatas</span></td><td style="color:#3d5278;font-size:0.8rem;">Masih dibutuhkan</td></tr>
+                        <tr><td>Popok Bayi & Dewasa</td><td><span class="pill pill-red">Terbatas</span></td><td style="color:#3d5278;font-size:0.8rem;">Masih dibutuhkan</td></tr>
+                        <tr><td>Air Bersih</td><td><span class="pill pill-orange">Sangat Mendesak</span></td><td style="color:#3d5278;font-size:0.8rem;">Sumur tercemar (hilir)</td></tr>
+                        <tr><td>Alat Pembersih</td><td><span class="pill pill-gold">Kurang</span></td><td style="color:#3d5278;font-size:0.8rem;">Karbol, sapu, sekop</td></tr>
+                        <tr><td>Perlengkapan Sekolah</td><td><span class="pill pill-gold">Kurang</span></td><td style="color:#3d5278;font-size:0.8rem;">Buku, seragam rusak</td></tr>
+                        <tr><td>Obat Kulit & ISPA</td><td><span class="pill pill-gold">Kurang</span></td><td style="color:#3d5278;font-size:0.8rem;">Pasca-banjir meningkat</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ TIMELINE ═══════════ -->
+<section id="timeline" class="section-wrap section-alt">
+    <div class="glow-orb" style="width:320px;height:320px;background:#ff5c1a;bottom:0;right:-80px;animation-delay:-5s;"></div>
+    <div style="max-width:720px;margin:0 auto;">
+        <div class="reveal">
+            <div class="slide-tag slide-tag--teal">[02] — Kronologi</div>
+            <h2 class="section-title">Timeline Kejadian</h2>
+            <p class="body-text" style="margin-bottom:2.5rem;">Scroll untuk mengikuti perjalanan bencana dari awal hingga pemulihan.</p>
+        </div>
+
+        <div style="position:relative;" class="reveal">
+            <div class="tl-line"></div>
+
+            <div style="position:relative;padding-left:40px;padding-bottom:3.5rem;">
+                <div class="tl-dot tl-dot-cyan" style="position:absolute;left:10px;top:2px;width:11px;height:11px;background:#00e5ff;border-radius:50%;box-shadow:0 0 12px rgba(0,229,255,0.6);"></div>
+                <span class="slide-tag" style="font-size:0.65rem;">Fase 1 — Awal Luapan</span>
+                <p class="mono-sm" style="margin-bottom:12px;">24 Desember 2025</p>
+                <div class="glow-card" style="margin-bottom:12px;padding:16px;">
+                    <p class="mono-sm" style="margin-bottom:4px;">02:00 WIB</p>
+                    <p class="body-text" style="font-size:0.95rem;">Hujan dengan intensitas sangat tinggi melanda wilayah pegunungan hulu di kawasan Taman Nasional Gunung Leuser.</p>
+                </div>
+                <div class="glow-card" style="padding:16px;">
+                    <p class="mono-sm" style="margin-bottom:4px;">04:30 WIB</p>
+                    <p class="body-text" style="font-size:0.95rem;">Debit air Sungai Tamiang naik drastis. Air mulai masuk ke pemukiman di <strong style="color:#e8edf8;">Tamiang Hulu</strong> dan <strong style="color:#e8edf8;">Bandar Pusaka</strong>. Warga mengevakuasi barang ke tempat tinggi.</p>
+                </div>
+            </div>
+
+            <div style="position:relative;padding-left:40px;padding-bottom:3.5rem;">
+                <div class="tl-dot tl-dot-red" style="position:absolute;left:10px;top:2px;width:11px;height:11px;background:#ff6b6b;border-radius:50%;box-shadow:0 0 12px rgba(255,107,107,0.6);"></div>
+                <span class="slide-tag slide-tag--red" style="font-size:0.65rem;">Fase 2 — Masa Kritis</span>
+                <p class="mono-sm" style="margin-bottom:12px;">25 — 27 Desember 2025</p>
+                <div class="glow-card glow-card-ember" style="margin-bottom:12px;padding:16px;">
+                    <p class="mono-sm" style="color:#ff6b6b;margin-bottom:4px;">25 Desember</p>
+                    <p class="body-text" style="font-size:0.95rem;">Banjir kiriman sampai ke wilayah tengah. <strong style="color:#e8edf8;">Karang Baru</strong> dan <strong style="color:#e8edf8;">Kota Kualasimpang</strong> mulai terendam (50 cm — 1 meter).</p>
+                </div>
+                <div class="glow-card glow-card-ember" style="margin-bottom:12px;padding:16px;border-color:rgba(255,107,107,0.15);">
+                    <p class="mono-sm" style="color:#ff6b6b;margin-bottom:4px;">26 Desember</p>
+                    <p class="body-text" style="font-size:0.95rem;">Akses jalan nasional <strong style="color:#e8edf8;">Medan — Banda Aceh</strong> di Bukit Seumadam lumpuh total. Kendaraan terjebak macet puluhan km. Listrik dipadamkan di beberapa titik.</p>
+                </div>
+                <div class="glow-card glow-card-ember" style="padding:16px;border-color:rgba(255,107,107,0.2);">
+                    <p class="mono-sm" style="color:#ff6b6b;margin-bottom:4px;">27 Desember — Puncak Banjir</p>
+                    <p class="body-text" style="font-size:0.95rem;">Seluruh <strong style="color:#e8edf8;">12 kecamatan</strong> terendam. Ketinggian air di hulu mencapai plafon rumah (<strong style="color:#ff6b6b;">±2,5 meter</strong>). Ribuan warga dievakuasi perahu karet. <strong style="color:#ff6b6b;">1 orang meninggal dunia (hanyut).</strong></p>
+                </div>
+            </div>
+
+            <div style="position:relative;padding-left:40px;padding-bottom:3.5rem;">
+                <div class="tl-dot tl-dot-orange" style="position:absolute;left:10px;top:2px;width:11px;height:11px;background:#ff5c1a;border-radius:50%;box-shadow:0 0 12px rgba(255,92,26,0.6);"></div>
+                <span class="slide-tag slide-tag--orange" style="font-size:0.65rem;">Fase 3 — Hambatan Hilir & Pasang Laut</span>
+                <p class="mono-sm" style="margin-bottom:12px;">28 — 31 Desember 2025</p>
+                <div class="glow-card" style="padding:16px;">
+                    <p class="mono-sm" style="margin-bottom:4px;">28 — 31 Desember</p>
+                    <p class="body-text" style="font-size:0.95rem;">Air surut di hulu, namun menumpuk di hilir (<strong style="color:#e8edf8;">Seruway</strong> & <strong style="color:#e8edf8;">Bendahara</strong>). Surut terhambat <strong style="color:#ff5c1a;">pasang air laut (rob)</strong>. Logistik disalurkan via udara.</p>
+                </div>
+            </div>
+
+            <div style="position:relative;padding-left:40px;padding-bottom:3.5rem;">
+                <div class="tl-dot tl-dot-blue" style="position:absolute;left:10px;top:2px;width:11px;height:11px;background:#63b3ff;border-radius:50%;box-shadow:0 0 12px rgba(99,179,255,0.6);"></div>
+                <span class="slide-tag slide-tag--violet" style="font-size:0.65rem;">Fase 4 — Transisi</span>
+                <p class="mono-sm" style="margin-bottom:12px;">01 — 05 Januari 2026</p>
+                <div class="glow-card glow-card-violet" style="padding:16px;">
+                    <p class="mono-sm" style="margin-bottom:4px;">01 — 05 Januari</p>
+                    <p class="body-text" style="font-size:0.95rem;">Air surut menyisakan lumpur tebal. Warga kembali bertahap. Tim medis intensif karena <strong style="color:#e8edf8;">penyakit kulit dan ISPA</strong> di posko.</p>
+                </div>
+            </div>
+
+            <div style="position:relative;padding-left:40px;padding-bottom:1rem;">
+                <div class="tl-dot tl-dot-teal" style="position:absolute;left:10px;top:2px;width:11px;height:11px;background:#00f5c4;border-radius:50%;box-shadow:0 0 12px rgba(0,245,196,0.6);"></div>
+                <span class="slide-tag slide-tag--teal" style="font-size:0.65rem;">Fase 5 — Pemulihan</span>
+                <p class="mono-sm" style="margin-bottom:12px;">Pasca 10 Januari 2026</p>
+                <div class="glow-card glow-card-teal" style="margin-bottom:12px;padding:16px;">
+                    <p class="mono-sm" style="color:#00f5c4;margin-bottom:4px;">10 Januari</p>
+                    <p class="body-text" style="font-size:0.95rem;">Pembersihan massal serentak oleh warga dan relawan di seluruh kecamatan.</p>
+                </div>
+                <div class="glow-card glow-card-teal" style="padding:16px;border-color:rgba(0,245,196,0.2);">
+                    <p class="mono-sm" style="color:#00f5c4;margin-bottom:4px;">15 Januari</p>
+                    <p class="body-text" style="font-size:0.95rem;"><strong style="color:#00f5c4;">Tanggap darurat resmi ditutup.</strong> Fokus ke perbaikan infrastruktur, pembersihan fasilitas pendidikan, dan pendataan kerugian sektor pertanian. ±500 jiwa masih di posko transisi.</p>
+                </div>
+            </div>
+
+            <p style="padding-left:40px;font-size:0.7rem;color:#3d5278;letter-spacing:0.1em;text-transform:uppercase;font-style:italic;">Data dihimpun dari laporan Pusdalops BPBD Aceh Tamiang dan pantauan relawan lapangan.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ ANALISIS ═══════════ -->
+<section id="analisis" class="section-wrap section-base">
+    <div class="glow-orb" style="width:380px;height:380px;background:#ff8c00;top:-80px;left:-80px;animation-delay:-2s;"></div>
+    <div style="max-width:1200px;margin:0 auto;">
+        <div class="reveal">
+            <div class="slide-tag slide-tag--orange">[03] — Analisis</div>
+            <h2 class="section-title">Mengapa Ini Terjadi?</h2>
+            <p class="body-text" style="margin-bottom:2.5rem;">Aceh Tamiang bukan kali pertama dilanda banjir bandang. Berikut faktor-faktor strukturalnya.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;" class="reveal">
+            <div class="glow-card glow-card-ember">
+                <div style="width:42px;height:42px;border:1px solid rgba(255,92,26,0.3);background:rgba(255,92,26,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+                    <span class="iconify" data-icon="lucide:tree-pine" style="font-size:1.3rem;color:#ff5c1a;"></span>
+                </div>
+                <p style="font-size:0.95rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:10px;">Deforestasi Hulu</p>
+                <p class="body-text" style="font-size:0.9rem;">Kawasan hulu Sungai Tamiang berada di zona Taman Nasional Gunung Leuser. Alih fungsi lahan dan deforestasi ilegal mengurangi kemampuan hutan menyerap air. Hujan tinggi langsung menjadi limpasan permukaan.</p>
+            </div>
+            <div class="glow-card" style="">
+                <div style="width:42px;height:42px;border:1px solid rgba(247,201,72,0.3);background:rgba(247,201,72,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+                    <span class="iconify" data-icon="lucide:waves" style="font-size:1.3rem;color:#f7c948;"></span>
+                </div>
+                <p style="font-size:0.95rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:10px;">Sedimentasi Sungai</p>
+                <p class="body-text" style="font-size:0.9rem;">Sungai Tamiang mengalami pendangkalan akut akibat erosi dari hulu. Material sedimen menyumbat aluran, sungai tidak mampu menampung debit air saat hujan ekstrem.</p>
+            </div>
+            <div class="glow-card glow-card-violet">
+                <div style="width:42px;height:42px;border:1px solid rgba(155,93,229,0.3);background:rgba(155,93,229,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+                    <span class="iconify" data-icon="lucide:cloud-rain" style="font-size:1.3rem;color:#9b5de5;"></span>
+                </div>
+                <p style="font-size:0.95rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:10px;">Faktor Cuaca Global</p>
+                <p class="body-text" style="font-size:0.9rem;">Kejadian bertepatan dengan anomali <strong style="color:#e8edf8;">La Niña</strong> yang meningkatkan curah hujan di Indonesia bagian barat. BMKG mencatat curah hujan 3x lebih tinggi dari normal pada Desember 2025.</p>
+            </div>
+        </div>
+        <div class="glow-card reveal" style="margin-top:1rem;padding:18px;display:flex;align-items:flex-start;gap:12px;">
+            <span class="iconify" data-icon="lucide:info" style="font-size:1.2rem;color:#00e5ff;flex-shrink:0;margin-top:2px;"></span>
+            <p class="body-text" style="font-size:0.9rem;margin:0;"><strong style="color:#e8edf8;">Catatan:</strong> Banjir besar serupa terjadi pada 2006, 2012, 2020, dan 2024. Pola berulang ini menandakan perlunya solusi struktural jangka panjang.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ ORGANISASI ═══════════ -->
+<section id="relawan" class="section-wrap section-alt">
+    <div class="glow-orb" style="width:300px;height:300px;background:#00f5c4;bottom:-80px;right:-60px;animation-delay:-4s;"></div>
+    <div style="max-width:1200px;margin:0 auto;">
+        <div class="reveal">
+            <div class="slide-tag">[04] — Relawan & Lembaga</div>
+            <h2 class="section-title">Organisasi di Lapangan</h2>
+            <p class="mono" style="margin-bottom:1.5rem;">Data dari laporan lapangan</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem;border-bottom:1px solid rgba(0,229,255,0.08);padding-bottom:12px;" class="reveal">
+            <button class="tab-btn active" data-filter="all">Semua</button>
+            <button class="tab-btn" data-filter="pemerintah">Pemerintah</button>
+            <button class="tab-btn" data-filter="kemanusiaan">Kemanusiaan</button>
+        </div>
+        <div id="orgGrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;" class="reveal">
+            <div class="glow-card org-card" data-category="pemerintah" style="border-radius:0;">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                    <div style="width:40px;height:40px;border:1px solid rgba(0,229,255,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="iconify org-icon" data-icon="lucide:shield-check" style="font-size:1.2rem;color:#3d5278;transition:color 0.4s,transform 0.4s;"></span></div>
+                    <span class="pill pill-cyan">Pemerintah</span>
+                </div>
+                <p style="font-size:0.9rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:6px;">BPBD Aceh Tamiang</p>
+                <p class="body-text" style="font-size:0.85rem;margin-bottom:12px;">Seluruh personel. Evakuasi warga dan koordinasi posko pengungsian.</p>
+                <div style="display:flex;gap:12px;"><span class="mono-sm">±80 personel</span><span class="mono-sm">Sejak 24 Des</span></div>
+            </div>
+            <div class="glow-card org-card" data-category="pemerintah" style="border-radius:0;">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                    <div style="width:40px;height:40px;border:1px solid rgba(0,229,255,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="iconify org-icon" data-icon="lucide:shield" style="font-size:1.2rem;color:#3d5278;transition:color 0.4s,transform 0.4s;"></span></div>
+                    <span class="pill pill-cyan">Pemerintah</span>
+                </div>
+                <p style="font-size:0.9rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:6px;">TNI / Polri</p>
+                <p class="body-text" style="font-size:0.85rem;margin-bottom:12px;">Pembersihan fasilitas umum dan distribusi logistik jalur udara ke desa terisolir.</p>
+                <div style="display:flex;gap:12px;"><span class="mono-sm">±200 personel</span><span class="mono-sm">Sejak 25 Des</span></div>
+            </div>
+            <div class="glow-card org-card" data-category="pemerintah" style="border-radius:0;">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                    <div style="width:40px;height:40px;border:1px solid rgba(0,229,255,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="iconify org-icon" data-icon="lucide:flame" style="font-size:1.2rem;color:#3d5278;transition:color 0.4s,transform 0.4s;"></span></div>
+                    <span class="pill pill-cyan">Pemerintah</span>
+                </div>
+                <p style="font-size:0.9rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:6px;">Tagana & Dinsos</p>
+                <p class="body-text" style="font-size:0.85rem;margin-bottom:12px;">Mengelola dapur umum utama di Karang Baru melayani ribuan pengungsi.</p>
+                <div style="display:flex;gap:12px;"><span class="mono-sm">Tim gabungan</span><span class="mono-sm">Sejak 24 Des</span></div>
+            </div>
+            <div class="glow-card org-card" data-category="pemerintah" style="border-radius:0;">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                    <div style="width:40px;height:40px;border:1px solid rgba(0,229,255,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="iconify org-icon" data-icon="lucide:search" style="font-size:1.2rem;color:#3d5278;transition:color 0.4s,transform 0.4s;"></span></div>
+                    <span class="pill pill-cyan">Pemerintah</span>
+                </div>
+                <p style="font-size:0.9rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:6px;">BASARNAS</p>
+                <p class="body-text" style="font-size:0.85rem;margin-bottom:12px;">Pencarian korban hanyut dan evakuasi warga di lokasi terisolir.</p>
+                <div style="display:flex;gap:12px;"><span class="mono-sm">12 personel</span><span class="mono-sm">Tiba 25 Des</span></div>
+            </div>
+            <div class="glow-card org-card glow-card-ember" data-category="kemanusiaan" style="border-radius:0;">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                    <div style="width:40px;height:40px;border:1px solid rgba(255,92,26,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="iconify org-icon" data-icon="lucide:heart" style="font-size:1.2rem;color:#3d5278;transition:color 0.4s,transform 0.4s;"></span></div>
+                    <span class="pill pill-orange">Kemanusiaan</span>
+                </div>
+                <p style="font-size:0.9rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:6px;">Rumah Zakat</p>
+                <p class="body-text" style="font-size:0.85rem;margin-bottom:12px;">Layanan medis, dukungan psikososial anak, dan distribusi sembako.</p>
+                <div style="display:flex;gap:12px;"><span class="mono-sm">Tim relawan</span><span class="mono-sm">Tiba 26 Des</span></div>
+            </div>
+            <div class="glow-card org-card glow-card-ember" data-category="kemanusiaan" style="border-radius:0;">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                    <div style="width:40px;height:40px;border:1px solid rgba(255,92,26,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="iconify org-icon" data-icon="lucide:hand-coins" style="font-size:1.2rem;color:#3d5278;transition:color 0.4s,transform 0.4s;"></span></div>
+                    <span class="pill pill-orange">Kemanusiaan</span>
+                </div>
+                <p style="font-size:0.9rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:6px;">Lazismu</p>
+                <p class="body-text" style="font-size:0.85rem;margin-bottom:12px;">Dukungan medis, psikososial, dan paket kebutuhan darurat.</p>
+                <div style="display:flex;gap:12px;"><span class="mono-sm">Tim relawan</span><span class="mono-sm">Tiba 27 Des</span></div>
+            </div>
+            <div class="glow-card org-card glow-card-ember" data-category="kemanusiaan" style="border-radius:0;">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+                    <div style="width:40px;height:40px;border:1px solid rgba(255,92,26,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="iconify org-icon" data-icon="lucide:wallet" style="font-size:1.2rem;color:#3d5278;transition:color 0.4s,transform 0.4s;"></span></div>
+                    <span class="pill pill-orange">Kemanusiaan</span>
+                </div>
+                <p style="font-size:0.9rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:6px;">Dompet Dhuafa</p>
+                <p class="body-text" style="font-size:0.85rem;margin-bottom:12px;">Layanan kesehatan gratis, sembako, kebersihan, dan pemulihan psikologis.</p>
+                <div style="display:flex;gap:12px;"><span class="mono-sm">Tim relawan</span><span class="mono-sm">Tiba 27 Des</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ SUARA WARGA ═══════════ -->
+<section id="suara" class="section-wrap section-base">
+    <div class="glow-orb" style="width:500px;height:500px;background:#9b5de5;top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:-6s;"></div>
+    <div style="max-width:1200px;margin:0 auto;">
+        <div class="reveal">
+            <div class="slide-tag slide-tag--violet">[05] — Suara Warga</div>
+            <h2 class="section-title">Ruang Suara</h2>
+            <p class="body-text" style="margin-bottom:2.5rem;">Kutipan dari warga terdampak dan relawan di lapangan.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-bottom:2rem;" class="reveal">
+            <div class="quote-card glow-card glow-card-violet">
+                <span class="iconify" data-icon="lucide:quote" style="font-size:1.5rem;color:rgba(155,93,229,0.3);margin-bottom:10px;display:block;"></span>
+                <p class="body-text" style="font-size:0.95rem;color:#e8edf8;font-style:italic;margin-bottom:16px;">"Air naik begitu cepat jam 4 pagi. Kami cuma sempat bawa anak dan dokumen penting. Semua perabotan hilang dalam semalam."</p>
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <div style="width:32px;height:32px;background:#111c36;border:1px solid rgba(155,93,229,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="iconify" data-icon="lucide:user" style="font-size:0.8rem;color:#3d5278;"></span></div>
+                    <div><p style="font-size:0.8rem;color:#e8edf8;">Ibu S. — Tamiang Hulu</p><p class="mono-sm">Des 2025</p></div>
+                </div>
+            </div>
+            <div class="quote-card glow-card glow-card-violet">
+                <span class="iconify" data-icon="lucide:quote" style="font-size:1.5rem;color:rgba(155,93,229,0.3);margin-bottom:10px;display:block;"></span>
+                <p class="body-text" style="font-size:0.95rem;color:#e8edf8;font-style:italic;margin-bottom:16px;">"Yang paling berat bukan saat banjir, tapi setelahnya. Rumah penuh lumpur, anak-anak takut kalau hujan turun. Kami butuh air bersih lebih dari apa pun."</p>
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <div style="width:32px;height:32px;background:#111c36;border:1px solid rgba(155,93,229,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="iconify" data-icon="lucide:user" style="font-size:0.8rem;color:#3d5278;"></span></div>
+                    <div><p style="font-size:0.8rem;color:#e8edf8;">Bapak R. — Bendahara</p><p class="mono-sm">Jan 2026</p></div>
+                </div>
+            </div>
+            <div class="quote-card glow-card glow-card-violet">
+                <span class="iconify" data-icon="lucide:quote" style="font-size:1.5rem;color:rgba(155,93,229,0.3);margin-bottom:10px;display:block;"></span>
+                <p class="body-text" style="font-size:0.95rem;color:#e8edf8;font-style:italic;margin-bottom:16px;">"Akses jalan putus total tiga hari. Kami distribusi logistik pakai perahu karet. Di beberapa desa, cuma helikopter yang bisa masuk."</p>
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <div style="width:32px;height:32px;background:#111c36;border:1px solid rgba(155,93,229,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="iconify" data-icon="lucide:user" style="font-size:0.8rem;color:#3d5278;"></span></div>
+                    <div><p style="font-size:0.8rem;color:#e8edf8;">Relawan Tagana</p><p class="mono-sm">Des 2025</p></div>
+                </div>
+            </div>
+            <div class="quote-card glow-card glow-card-violet">
+                <span class="iconify" data-icon="lucide:quote" style="font-size:1.5rem;color:rgba(155,93,229,0.3);margin-bottom:10px;display:block;"></span>
+                <p class="body-text" style="font-size:0.95rem;color:#e8edf8;font-style:italic;margin-bottom:16px;">"Anak-anak di posko banyak trauma. Mereka menangis kalau hujan turun sedikit saja. Kami adakan pendampingan psikososial setiap hari."</p>
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <div style="width:32px;height:32px;background:#111c36;border:1px solid rgba(155,93,229,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;"><span class="iconify" data-icon="lucide:user" style="font-size:0.8rem;color:#3d5278;"></span></div>
+                    <div><p style="font-size:0.8rem;color:#e8edf8;">Tim Psikososial</p><p class="mono-sm">Jan 2026</p></div>
+                </div>
+            </div>
+        </div>
+                     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;" class="reveal">
+            <div class="img-frame" style="aspect-ratio:1;"><img src="images/Banjir-pengungsi.jpg" alt="Warga pengungsi banjir Aceh Tamiang"></div>
+            <div class="img-frame" style="aspect-ratio:1;"><img src="images/batang-kayu-menumpuk-mesjid.jpeg" alt="Batang kayu menumpuk di mesjid pasca banjir"></div>
+            <div class="img-frame" style="aspect-ratio:1;"><img src="images/pembersihan-masjid-pascabencana.webp" alt="Pembersihan mesjid pascabencana"></div>
+            <div class="img-frame" style="aspect-ratio:1;"><img src="images/banjir2.webp" alt="Kondisi banjir Aceh Tamiang"></div>
+        </div>
+</section>
+
+<!-- ═══════════ PANDUAN ═══════════ -->
+<section id="panduan" class="section-wrap section-alt">
+    <div class="glow-orb" style="width:350px;height:350px;background:#00e5ff;top:-100px;right:-80px;animation-delay:-3s;"></div>
+    <div style="max-width:1200px;margin:0 auto;">
+        <div class="reveal">
+            <div class="slide-tag slide-tag--gold">[06] — Panduan</div>
+            <h2 class="section-title">Panduan Pasca-Banjir</h2>
+            <p class="body-text" style="margin-bottom:2.5rem;">Informasi praktis bagi warga yang sedang memulihkan diri.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;" class="reveal">
+            <div class="glow-card">
+                <span class="iconify" data-icon="lucide:smartphone" style="font-size:1.4rem;color:#00e5ff;margin-bottom:14px;display:block;text-shadow:0 0 12px rgba(0,229,255,0.4);"></span>
+                <p style="font-size:0.9rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:10px;">Elektronik Terendam</p>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;" class="body-text">
+                    <li style="font-size:0.85rem;"><span style="color:#00e5ff;margin-right:8px;">—</span>Jangan nyalakan langsung. Keringkan min. 48 jam.</li>
+                    <li style="font-size:0.85rem;"><span style="color:#00e5ff;margin-right:8px;">—</span>Lepas baterai & simcard secepatnya.</li>
+                    <li style="font-size:0.85rem;"><span style="color:#00e5ff;margin-right:8px;">—</span>Bilas air bersih lalu keringkan.</li>
+                    <li style="font-size:0.85rem;"><span style="color:#00e5ff;margin-right:8px;">—</span>Gunakan silica gel atau beras untuk kelembapan.</li>
+                </ul>
+            </div>
+            <div class="glow-card">
+                <span class="iconify" data-icon="lucide:file-text" style="font-size:1.4rem;color:#f7c948;margin-bottom:14px;display:block;text-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                <p style="font-size:0.9rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:10px;">Dokumen Rusak/Hilang</p>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;" class="body-text">
+                    <li style="font-size:0.85rem;"><span style="color:#f7c948;margin-right:8px;">—</span><strong style="color:#e8edf8;">KK/KTP:</strong> Disdukcapil + surat RT/RW.</li>
+                    <li style="font-size:0.85rem;"><span style="color:#f7c948;margin-right:8px;">—</span><strong style="color:#e8edf8;">Ijazah:</strong> Sekolah asal + surat kehilangan polisi.</li>
+                    <li style="font-size:0.85rem;"><span style="color:#f7c948;margin-right:8px;">—</span><strong style="color:#e8edf8;">Sertifikat:</strong> BPN + surat kepala desa.</li>
+                    <li style="font-size:0.85rem;"><span style="color:#f7c948;margin-right:8px;">—</span>BPBD biasanya buka layanan pengurusan massal.</li>
+                </ul>
+            </div>
+            <div class="glow-card glow-card-ember">
+                <span class="iconify" data-icon="lucide:alert-circle" style="font-size:1.4rem;color:#ff6b6b;margin-bottom:14px;display:block;text-shadow:0 0 12px rgba(255,107,107,0.4);"></span>
+                <p style="font-size:0.9rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:10px;">Penyakit yang Diwaspadai</p>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;" class="body-text">
+                    <li style="font-size:0.85rem;"><span style="color:#ff6b6b;margin-right:8px;">!</span><strong style="color:#e8edf8;">Diare:</strong> Kontaminasi air. Minum air bersih saja.</li>
+                    <li style="font-size:0.85rem;"><span style="color:#ff6b6b;margin-right:8px;">!</span><strong style="color:#e8edf8;">Leptospirosis:</strong> Air kencing tikus. Pakai boots.</li>
+                    <li style="font-size:0.85rem;"><span style="color:#ff6b6b;margin-right:8px;">!</span><strong style="color:#e8edf8;">Penyakit Kulit:</strong> Dermatitis dari lumpur.</li>
+                    <li style="font-size:0.85rem;"><span style="color:#ff6b6b;margin-right:8px;">!</span><strong style="color:#e8edf8;">ISPA:</strong> Kelembapan posko. Jaga ventilasi.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ BANTUAN ═══════════ -->
+<section id="bantuan" class="section-wrap section-base">
+    <div class="glow-orb" style="width:400px;height:400px;background:#00e5ff;bottom:-100px;left:-80px;animation-delay:-2s;"></div>
+    <div style="max-width:1200px;margin:0 auto;">
+        <div class="reveal">
+            <div class="slide-tag slide-tag--teal">[07] — Solidaritas</div>
+            <h2 class="section-title">Cara Membantu</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-bottom:2rem;" class="reveal">
+            <div class="glow-card">
+                <span class="iconify" data-icon="lucide:banknote" style="font-size:1.5rem;color:#00e5ff;margin-bottom:14px;display:block;"></span>
+                <p style="font-size:0.9rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:8px;">Donasi Dana</p>
+                <p class="body-text" style="font-size:0.85rem;margin-bottom:14px;">Transfer ke rekening resmi <strong style="color:#e8edf8;">Aceh Tamiang Peduli</strong> via Bank Aceh Syariah.</p>
+                <div style="background:#111c36;border:1px solid rgba(0,229,255,0.1);border-radius:8px;padding:12px;">
+                    <p class="mono-sm" style="margin-bottom:4px;">Bank Aceh Syariah</p>
+                    <p style="font-size:0.85rem;color:#e8edf8;">Cek website resmi Pemkab</p>
+                    <p class="mono-sm" style="margin-top:4px;">a.n. Aceh Tamiang Peduli</p>
+                </div>
+                <p style="font-size:0.7rem;color:#ff5c1a;margin-top:8px;">⚠ Verifikasi nomor rekening di website resmi.</p>
+            </div>
+            <div class="glow-card">
+                <span class="iconify" data-icon="lucide:package" style="font-size:1.5rem;color:#00e5ff;margin-bottom:14px;display:block;"></span>
+                <p style="font-size:0.9rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:8px;">Donasi Barang</p>
+                <p class="body-text" style="font-size:0.85rem;margin-bottom:12px;">Drop point: Posko Utama Aula Kantor Bupati, Karang Baru.</p>
+                <div style="display:flex;flex-direction:column;gap:5px;">
+                    <span style="font-size:0.85rem;color:#8fa3c8;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;background:#ff6b6b;border-radius:50%;display:inline-block;box-shadow:0 0 6px rgba(255,107,107,0.5);"></span>Air bersih (sangat mendesak)</span>
+                    <span style="font-size:0.85rem;color:#8fa3c8;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;background:#ff6b6b;border-radius:50%;display:inline-block;box-shadow:0 0 6px rgba(255,107,107,0.5);"></span>Susu bayi & popok</span>
+                    <span style="font-size:0.85rem;color:#8fa3c8;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;background:#ff6b6b;border-radius:50%;display:inline-block;box-shadow:0 0 6px rgba(255,107,107,0.5);"></span>Obat kulit & ISPA</span>
+                    <span style="font-size:0.85rem;color:#8fa3c8;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;background:#f7c948;border-radius:50%;display:inline-block;box-shadow:0 0 6px rgba(247,201,72,0.5);"></span>Alat bersih (karbol, sapu, sekop)</span>
+                    <span style="font-size:0.85rem;color:#8fa3c8;display:flex;align-items:center;gap:6px;"><span style="width:6px;height:6px;background:#f7c948;border-radius:50%;display:inline-block;box-shadow:0 0 6px rgba(247,201,72,0.5);"></span>Perlengkapan sekolah</span>
+                </div>
+            </div>
+            <div class="glow-card">
+                <span class="iconify" data-icon="lucide:user-plus" style="font-size:1.5rem;color:#00e5ff;margin-bottom:14px;display:block;"></span>
+                <p style="font-size:0.9rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;margin-bottom:8px;">Jadi Relawan</p>
+                <p class="body-text" style="font-size:0.85rem;margin-bottom:14px;">Daftar melalui sekretariat resmi.</p>
+                <div style="display:flex;flex-direction:column;gap:12px;">
+                    <div style="display:flex;align-items:center;gap:10px;"><span class="iconify" data-icon="lucide:map-pin" style="color:#00e5ff;"></span><div><p class="mono-sm">Posko Utama</p><p style="font-size:0.85rem;color:#e8edf8;">Aula Kantor Bupati, Karang Baru</p></div></div>
+                    <div style="display:flex;align-items:center;gap:10px;"><span class="iconify" data-icon="lucide:phone" style="color:#00e5ff;"></span><div><p class="mono-sm">Pendaftaran</p><p style="font-size:0.85rem;color:#e8edf8;">Sekretariat BPBD / Tagana</p></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glow-card reveal" style="padding:24px;margin-bottom:1rem;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+                <span class="iconify" data-icon="lucide:receipt" style="color:#00e5ff;"></span>
+                <p style="font-size:0.9rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;">Transparansi Donasi</p>
+            </div>
+            <p class="body-text" style="font-size:0.85rem;margin-bottom:14px;">Jika kamu membuka penyaluran bantuan mandiri, wajib isi tabel ini secara berkala.</p>
+            <div style="overflow-x:auto;">
+                <table class="glow-table">
+                    <thead><tr><th>Tanggal</th><th>Donatur</th><th>Jumlah</th><th>Jenis</th><th>Disalurkan Ke</th></tr></thead>
+                    <tbody>
+                        <tr><td style="color:#3d5278;">—</td><td style="color:#3d5278;font-style:italic;">Belum ada data</td><td style="color:#3d5278;">—</td><td style="color:#3d5278;">—</td><td style="color:#3d5278;">—</td></tr>
+                        <tr><td style="color:#3d5278;">—</td><td style="color:#3d5278;font-style:italic;">Belum ada data</td><td style="color:#3d5278;">—</td><td style="color:#3d5278;">—</td><td style="color:#3d5278;">—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mono-sm" style="margin-top:8px;font-style:italic;">Contoh — isi dengan data real jika mengelola donasi mandiri.</p>
+        </div>
+
+        <div class="glow-card reveal glow-card-ember" style="padding:18px;display:flex;align-items:flex-start;gap:12px;border-color:rgba(255,107,107,0.2);">
+            <span class="iconify" data-icon="lucide:alert-triangle" style="font-size:1.3rem;color:#ff6b6b;flex-shrink:0;margin-top:2px;"></span>
+            <div>
+                <p style="font-size:0.9rem;color:#ff6b6b;font-family:'Cinzel Decorative',serif;margin-bottom:4px;">Peringatan Penipuan</p>
+                <p class="body-text" style="font-size:0.85rem;margin:0;">Jangan transfer ke nomor rekening pribadi. Gunakan kanal resmi dari lembaga terverifikasi. Laporkan aktivitas mencurigakan ke <strong style="color:#e8edf8;">112</strong>.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ KONTAK ═══════════ -->
+<section class="section-wrap section-alt" style="padding-top:60px;padding-bottom:60px;">
+    <div style="max-width:1200px;margin:0 auto;">
+        <div class="reveal">
+            <div class="slide-tag">[08] — Kontak</div>
+            <h2 class="section-title">Nomor Penting</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;" class="reveal">
+            <div class="stat-box" style="text-align:center;padding:24px;">
+                <span class="iconify" data-icon="lucide:phone-call" style="font-size:1.8rem;color:#ff6b6b;margin-bottom:8px;display:block;text-shadow:0 0 16px rgba(255,107,107,0.5);"></span>
+                <p style="font-size:0.95rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;">(0641) 332910</p>
+                <p class="mono-sm" style="margin-top:4px;">BPBD Aceh Tamiang</p>
+            </div>
+            <div class="stat-box" style="text-align:center;padding:24px;">
+                <span class="iconify" data-icon="lucide:siren" style="font-size:1.8rem;color:#ff6b6b;margin-bottom:8px;display:block;text-shadow:0 0 16px rgba(255,107,107,0.5);"></span>
+                <p style="font-size:0.95rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;">112</p>
+                <p class="mono-sm" style="margin-top:4px;">Emergency Call</p>
+            </div>
+            <div class="stat-box" style="text-align:center;padding:24px;">
+                <span class="iconify" data-icon="lucide:search" style="font-size:1.8rem;color:#ff6b6b;margin-bottom:8px;display:block;text-shadow:0 0 16px rgba(255,107,107,0.5);"></span>
+                <p style="font-size:0.95rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;">(0641) 426466 atau 0811-6712-115</p>
+                <p class="mono-sm" style="margin-top:4px;">SAR Aceh</p>
+            </div>
+            <div class="stat-box" style="text-align:center;padding:24px;">
+                <span class="iconify" data-icon="lucide:zap" style="font-size:1.8rem;color:#ff6b6b;margin-bottom:8px;display:block;text-shadow:0 0 16px rgba(255,107,107,0.5);"></span>
+                <p style="font-size:0.95rem;color:#e8edf8;font-family:'Cinzel Decorative',serif;">123 (Atau melalui HP: (0641) 123)</p>
+                <p class="mono-sm" style="margin-top:4px;">PLN Gangguan</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="section-wrap section-closing" style="padding-top:80px;padding-bottom:60px;">
+    <div style="max-width:640px;text-align:center;margin:0 auto;" class="reveal">
+        <div class="nav-logo" style="font-size:1rem;margin-bottom:1rem;">Aceh Tamiang</div>
+        <p class="body-text" style="font-size:0.9rem;">Halaman informasi untuk koordinasi data dan bantuan bencana banjir Aceh Tamiang, Desember 2025 — Januari 2026.</p>
+        <div style="margin-top:1rem;display:flex;justify-content:center;flex-wrap:wrap;gap:0.8rem;">
+            <a href="#data" class="footer-link">Data</a>
+            <a href="#timeline" class="footer-link">Kronologi</a>
+            <a href="#analisis" class="footer-link">Analisis</a>
+            <a href="#relawan" class="footer-link">Relawan</a>
+            <a href="#bantuan" class="footer-link">Bantuan</a>
+        </div>
+        <p style="margin-top:2.5rem;font-size:0.7rem;color:#3d5278;letter-spacing:0.1em;text-transform:uppercase;">Sumber: Pusdalops BPBD Aceh Tamiang · BMKG · Pemkab · Relawan Lapangan</p>
+        <p style="margin-top:0.5rem;font-size:0.7rem;color:#3d5278;letter-spacing:0.1em;text-transform:uppercase;">Des 2025 — Jan 2026 · Data bersifat dinamis</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
