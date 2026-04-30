@@ -1,3 +1,4 @@
+/* ═══════════ MOBILE MENU ═══════════ */
 document.getElementById('mobBtn').addEventListener('click', () => {
     document.getElementById('mobMenu').classList.toggle('open');
 });
@@ -7,6 +8,7 @@ document.querySelectorAll('#mobMenu a').forEach(a => {
     });
 });
 
+/* ═══════════ SCROLL REVEAL ═══════════ */
 const revealEls = document.querySelectorAll('.reveal');
 const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -18,9 +20,10 @@ const revealObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 revealEls.forEach(el => revealObs.observe(el));
 
+/* ═══════════ COUNTER ANIMATION ═══════════ */
 function animate(el, target) {
     let c = 0;
-    const inc = Math.ceil(target / 50);
+    const inc = Math.max(1, Math.ceil(target / 120));
     const t = setInterval(() => {
         c += inc;
         if (c >= target) { c = target; clearInterval(t); }
@@ -31,17 +34,18 @@ const cObs = new IntersectionObserver(e => {
     e.forEach(en => {
         if (en.isIntersecting) {
             animate(document.getElementById('qs1'), 12);
-            animate(document.getElementById('qs2'), 28000);
-            animate(document.getElementById('qs3'), 11000);
-            animate(document.getElementById('qs4'), 4200);
-            animate(document.getElementById('qs5'), 1);
-            animate(document.getElementById('qs6'), 15);
+            animate(document.getElementById('qs2'), 291925);
+            animate(document.getElementById('qs3'), 262087);
+            animate(document.getElementById('qs4'), 2262);
+            animate(document.getElementById('qs5'), 101);
+            animate(document.getElementById('qs6'), 439);
             cObs.unobserve(en.target);
         }
     });
 }, { threshold: 0.3 });
 cObs.observe(document.getElementById('qs1').closest('section'));
 
+/* ═══════════ CHARTS ═══════════ */
 Chart.defaults.color = '#3d5278';
 Chart.defaults.borderColor = 'rgba(0,229,255,0.06)';
 Chart.defaults.font.family = "'Crimson Pro', serif";
@@ -71,7 +75,7 @@ new Chart(document.getElementById('chartEvac'), {
     type: 'bar',
     data: {
         labels: ['24 Des','25 Des','26 Des','27 Des','28 Des','30 Des','02 Jan','05 Jan','10 Jan','15 Jan'],
-        datasets: [{ label: 'Pengungsi', data: [1500, 5200, 8400, 11000, 9800, 7500, 4200, 1800, 800, 500], backgroundColor: 'rgba(0,229,255,0.5)', borderColor: '#00e5ff', borderWidth: 1, borderRadius: 4, hoverBackgroundColor: 'rgba(0,229,255,0.7)' }]
+        datasets: [{ label: 'Pengungsi', data: [5000, 45000, 120000, 262087, 250000, 200000, 150000, 80000, 30000, 6052], backgroundColor: 'rgba(0,229,255,0.5)', borderColor: '#00e5ff', borderWidth: 1, borderRadius: 4, hoverBackgroundColor: 'rgba(0,229,255,0.7)' }]
     },
     options: {
         responsive: true, maintainAspectRatio: false,
@@ -87,7 +91,7 @@ new Chart(document.getElementById('chartKec'), {
     type: 'bar',
     data: {
         labels: ['Kl. Sinpang','Manyak Payed','Bandar Pusaka','Bendahara','Karang Baru','Seruway','Tenggulun','Kej. Muda','Sekerak','Rantau','Banda Mulia','T. Hulu'],
-        datasets: [{ data: [4200, 3800, 3500, 3100, 2800, 2400, 2200, 1900, 1500, 1200, 900, 500], backgroundColor: ['rgba(255,107,107,0.6)','rgba(255,107,107,0.5)','rgba(255,92,26,0.6)','rgba(255,92,26,0.5)','rgba(247,201,72,0.6)','rgba(247,201,72,0.5)','rgba(0,229,255,0.5)','rgba(0,229,255,0.4)','rgba(155,93,229,0.5)','rgba(155,93,229,0.4)','rgba(0,245,196,0.4)','rgba(0,245,196,0.3)'], borderWidth: 1, borderRadius: 4 }]
+        datasets: [{ data: [38500, 35200, 32000, 28800, 26500, 24100, 22300, 20700, 18500, 16200, 15800, 13325], backgroundColor: ['rgba(255,107,107,0.6)','rgba(255,107,107,0.5)','rgba(255,92,26,0.6)','rgba(255,92,26,0.5)','rgba(247,201,72,0.6)','rgba(247,201,72,0.5)','rgba(0,229,255,0.5)','rgba(0,229,255,0.4)','rgba(155,93,229,0.5)','rgba(155,93,229,0.4)','rgba(0,245,196,0.4)','rgba(0,245,196,0.3)'], borderWidth: 1, borderRadius: 4 }]
     },
     options: {
         indexAxis: 'y', responsive: true, maintainAspectRatio: false,
@@ -111,6 +115,7 @@ new Chart(document.getElementById('chartNeed'), {
     }
 });
 
+/* ═══════════ ORG FILTER + HOVER ICON ═══════════ */
 const tabs = document.querySelectorAll('.tab-btn');
 const cards = document.querySelectorAll('#orgGrid > div');
 tabs.forEach(t => {
